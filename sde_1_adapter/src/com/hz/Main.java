@@ -11,6 +11,7 @@ public class Main {
         ConsoleReader reader = new ConsoleReader();
         ConsoleWriter writer = new ConsoleWriter();
 
+
         // ask questions
         String q1 = "Do you like eating vegetables?";
 
@@ -21,11 +22,7 @@ public class Main {
         writer.write(q1);
 
         // read response
-        Boolean ans1 = reader.readLine().equals("Yep");
-
-        //TODO
-        // the reader should accept the following values as true:
-        // "true", "yes", "oh yeah", "great", "sure", "love to", "of course", "always", "never done otherwise"
+        Boolean ans1 = Adapter.Checker(reader.readLine()).equals("Yep");
 
 
         if (ans1) {

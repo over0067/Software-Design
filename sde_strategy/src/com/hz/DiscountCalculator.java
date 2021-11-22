@@ -9,8 +9,14 @@ public class DiscountCalculator {
     public void setChristmasEve(boolean christmasEve) {
         isChristmasEve = christmasEve;
     }
+//    //toegevoegd
+//    public void setBlackFriday(boolean BlackFriday) {
+//        isBlackFriday = BlackFriday;
+//    }
 
     private boolean isChristmasEve;
+//    //toegevoegd
+//    private boolean isBlackFriday;
 
     public DiscountCalculator(Customer customer) {
         this.customer = customer;
@@ -32,6 +38,10 @@ public class DiscountCalculator {
             }
 
         }
+//        //toegevoegd
+//        if (isBlackFriday){
+//            discount = .10 * product.;
+//        }
 
         // Default situation: new customers full price, regular 15% off
         else if(customer.isRegular()) {

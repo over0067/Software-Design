@@ -15,6 +15,10 @@ public class Checkout {
         if(salesAction == SalesAction.ChristmasEve) {
             discountCalculator.setChristmasEve(true);
         }
+//        //toegevoegdif
+//        else if (salesAction == SalesAction.BlackFriday) {
+//            discountCalculator.setBlackFriday(true);
+//        }
 
         // Welcome customer
         String welcome = String.format("Hello %s, would you pass me your shopping cart?",

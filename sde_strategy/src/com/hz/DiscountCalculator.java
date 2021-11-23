@@ -30,7 +30,7 @@ public class DiscountCalculator {
     }
 
     public double getDiscount(Product product, int index) {
-            return strategy.calcDiscount();
+            return strategy.calcDiscount(customer);
     }
 
     public void setStrategy(SalesAction salesAction) {

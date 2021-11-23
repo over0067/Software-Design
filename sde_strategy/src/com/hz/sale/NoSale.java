@@ -11,7 +11,7 @@ public class NoSale implements Sale {
     }
 
     @Override
-    public float calcDiscount() {
+    public float calcDiscount(Customer customer) {
         float discount = this.customer.isRegular() ? .15f : 0;
 
         return 1 - discount;

@@ -1,53 +1,49 @@
 package com.hz;
 
+import com.hz.sale.BlackFridaySale;
+import com.hz.sale.ChristmasSale;
+import com.hz.sale.NoSale;
+import com.hz.sale.Sale;
 import products.Product;
 
 public class DiscountCalculator {
 
     private Customer customer;
+    private Sale strategy;
 
-    public void setChristmasEve(boolean christmasEve) {
-        isChristmasEve = christmasEve;
-    }
+//    public void setChristmasEve(boolean christmasEve) {
+//        isChristmasEve = christmasEve;
+//    }
 //    //toegevoegd
 //    public void setBlackFriday(boolean BlackFriday) {
 //        isBlackFriday = BlackFriday;
 //    }
 
-    private boolean isChristmasEve;
+//    private boolean isChristmasEve;
 //    //toegevoegd
 //    private boolean isBlackFriday;
+    private int index;
 
-    public DiscountCalculator(Customer customer) {
+    public DiscountCalculator(Customer customer, int index) {
         this.customer = customer;
+        this.index = index;
     }
 
     public double getDiscount(Product product, int index) {
+            return strategy.calcDiscount();
+    }
 
-        double discount = 0.0;
-
-        boolean isFirstProduct = index == 0;
-
-        // on Christmas Eve, 1st product 20%, the next 12.5% discount
-        if(isChristmasEve) {
-
-            if(isFirstProduct) {
-                discount = .20;
-            } else {
-                discount = .125;
-            }
-
+    public void setStrategy(SalesAction salesAction) {
+        switch (salesAction) {
+            case NoAction:
+                this.strategy = new NoSale(customer);
+                break;
+            case BlackFriday:
+                this.strategy = new BlackFridaySale();
+                break;
+            case ChristmasEve:
+                this.strategy = new ChristmasSale(index);
+                break;
         }
-//        //toegevoegd
-//        if (isBlackFriday){
-//            discount = .10 * product.;
-//        }
-
-        // Default situation: new customers full price, regular 15% off
-        else if(customer.isRegular()) {
-            discount = .15;
-        }
-
-        return 1 - discount;
     }
 }

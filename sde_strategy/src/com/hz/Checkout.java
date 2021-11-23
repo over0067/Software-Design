@@ -10,12 +10,13 @@ public class Checkout {
 
     public void nextInLine(Customer customer) {
 
-        // init checkout
-        DiscountCalculator discountCalculator = new DiscountCalculator(customer);
-        if(salesAction == SalesAction.ChristmasEve) {
-            discountCalculator.setChristmasEve(true);
-        }
-//        //toegevoegdif
+//        // init checkout
+//        DiscountCalculator discountCalculator = new DiscountCalculator(customer);
+//        if(salesAction == SalesAction.ChristmasEve) {
+//            discountCalculator.setChristmasEve(true);
+//        }
+
+//        //toegevoegd
 //        else if (salesAction == SalesAction.BlackFriday) {
 //            discountCalculator.setBlackFriday(true);
 //        }
@@ -28,7 +29,11 @@ public class Checkout {
         // perform checkout
         ShoppingCart cart = customer.getCart();
 
-        double amountToPay = cart.getTotalPrice(discountCalculator);
+//        double amountToPay = cart.getTotalPrice(discountCalculator);
+//        String payinfo = String.format("Let's see, that will be.. %.02f. Cash or card?", amountToPay);
+//        Console.write(payinfo);
+
+        double amountToPay = cart.getTotalPrice(this.salesAction, customer);
         String payinfo = String.format("Let's see, that will be.. %.02f. Cash or card?", amountToPay);
         Console.write(payinfo);
     }
